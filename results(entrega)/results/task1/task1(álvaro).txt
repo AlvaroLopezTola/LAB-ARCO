@@ -1,0 +1,62 @@
+02 October 2024 06:32:31 PM
+
+MATMUL:
+  C = A * B.
+  Order N                 = 300
+  Elapsed seconds = 0.198964
+  C(100,100)  = 1
+
+Matmul:
+  Normal end of execution.
+
+02 October 2024 06:32:31 PM
+02 October 2024 06:34:23 PM
+
+MATMUL:
+  C = A * B.
+  Order N                 = 300
+  Elapsed seconds = 0.100579
+  C(100,100)  = 1
+
+Matmul:
+  Normal end of execution.
+
+02 October 2024 06:34:24 PM
+02 October 2024 06:34:27 PM
+
+MATMUL:
+  C = A * B.
+  Order N                 = 300
+  Elapsed seconds = 0.174066
+  C(100,100)  = 1
+
+Matmul:
+  Normal end of execution.
+
+02 October 2024 06:34:27 PM
+02 October 2024 06:34:28 PM
+
+MATMUL:
+  C = A * B.
+  Order N                 = 300
+  Elapsed seconds = 0.163976
+  C(100,100)  = 1
+
+Matmul:
+  Normal end of execution.
+
+02 October 2024 06:34:29 PM
+02 October 2024 06:34:30 PM
+
+MATMUL:
+  C = A * B.
+  Order N                 = 300
+  Elapsed seconds = 0.171182
+  C(100,100)  = 1
+
+Matmul:
+  Normal end of execution.
+
+02 October 2024 06:34:30 PM
+
+El valor de la mediada despues de 5 ejecuciones es:Elapsed seconds = 0.174066

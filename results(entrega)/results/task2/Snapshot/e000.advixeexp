@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <is_snapshot type="bool">true</is_snapshot>
+ <is_temporary type="bool">true</is_temporary>
+ <rdmgr>
+  <timestamp type="u64_t">1727892596</timestamp>
+  <hostname type="string">usuario-Aspire-A514-52G</hostname>
+  <os type="string">linux</os>
+  <product type="string">Intel® Advisor 2024.2.1</product>
+  <buildNumber type="s32_t">615624</buildNumber>
+  <logicalCPUCount type="s32_t">8</logicalCPUCount>
+  <physicalCoreCount type="s32_t">4</physicalCoreCount>
+  <processorPackageCount type="s32_t">1</processorPackageCount>
+  <CPUFrequency type="s64_t">1600000000</CPUFrequency>
+  <CPUFamily type="s32_t">6</CPUFamily>
+  <CPUModel type="s32_t">142</CPUModel>
+  <CPUStepping type="s32_t">12</CPUStepping>
+  <CPUBrandName type="string">Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz</CPUBrandName>
+  <isa type="string">avx2</isa>
+ </rdmgr>
+</root>

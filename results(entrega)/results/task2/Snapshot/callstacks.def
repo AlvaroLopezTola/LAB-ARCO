@@ -1,0 +1,26 @@
+# callstacks file version: 8
+#    rowid	    parent	       rva	 loop	 system	                                function	binary	instance_start_rva	instance_size	instance_end_rva	finst_rowid	roi	is_inlined	jit_method_id	tripcounts_roi	flops_roi	cachesim_roi	data_transfer_roi	projection_roi
+         1	        -1	      4432	    0	      0	                                  _start	/home/usuario/Descargas/lab1-master/src/matul2	4432	38	0	1	0	0	0	0	0	0	0	0
+         2	        -1	      4468	    0	      0	                                  _start	/home/usuario/Descargas/lab1-master/src/matul2	4432	38	0	1	0	0	0	0	0	0	0	0
+         3	        22	    171583	    1	      1	[Loop at line 379 in __libc_start_main_impl]	/lib/x86_64-linux-gnu/libc.so.6	171555,171688	129,65	0	6	0	0	0	0	0	0	0	0
+         4	         3	    171407	    0	      1	                  __libc_start_call_main	/lib/x86_64-linux-gnu/libc.so.6	171280	172	0	8	0	0	0	0	0	0	0	0
+         5	        14	      5348	    1	      0	               [Loop at line 72 in main]	/home/usuario/Descargas/lab1-master/src/matul2	5318	138	5456	2	0	0	0	0	0	0	0	0
+         6	        14	      5448	    1	      0	               [Loop at line 72 in main]	/home/usuario/Descargas/lab1-master/src/matul2	5318	138	5456	2	0	0	0	0	0	0	0	0
+         7	        14	      5411	    1	      0	               [Loop at line 72 in main]	/home/usuario/Descargas/lab1-master/src/matul2	5318	138	5456	2	0	0	0	0	0	0	0	0
+         8	        14	      5384	    1	      0	               [Loop at line 72 in main]	/home/usuario/Descargas/lab1-master/src/matul2	5318	138	5456	2	0	0	0	0	0	0	0	0
+         9	        14	      5365	    1	      0	               [Loop at line 72 in main]	/home/usuario/Descargas/lab1-master/src/matul2	5318	138	5456	2	0	0	0	0	0	0	0	0
+        10	        14	      5415	    1	      0	               [Loop at line 72 in main]	/home/usuario/Descargas/lab1-master/src/matul2	5318	138	5456	2	0	0	0	0	0	0	0	0
+        11	        14	      5330	    1	      0	               [Loop at line 72 in main]	/home/usuario/Descargas/lab1-master/src/matul2	5318	138	5456	2	0	0	0	0	0	0	0	0
+        12	         4	      5250	    0	      0	                                    main	/home/usuario/Descargas/lab1-master/src/matul2	4672	1069	0	3	0	0	0	0	0	0	0	0
+        13	        12	      5269	    1	      0	               [Loop at line 67 in main]	/home/usuario/Descargas/lab1-master/src/matul2	5250	244	5494	5	0	0	0	0	0	0	0	0
+        14	        13	      5318	    1	      0	               [Loop at line 69 in main]	/home/usuario/Descargas/lab1-master/src/matul2	5269	206	5475	4	0	0	0	0	0	0	0	0
+        15	         4	      5348	    0	      0	                                    main	/home/usuario/Descargas/lab1-master/src/matul2	4672	1069	0	3	0	0	0	0	0	0	0	0
+        16	         4	      5448	    0	      0	                                    main	/home/usuario/Descargas/lab1-master/src/matul2	4672	1069	0	3	0	0	0	0	0	0	0	0
+        17	         4	      5411	    0	      0	                                    main	/home/usuario/Descargas/lab1-master/src/matul2	4672	1069	0	3	0	0	0	0	0	0	0	0
+        18	         4	      5384	    0	      0	                                    main	/home/usuario/Descargas/lab1-master/src/matul2	4672	1069	0	3	0	0	0	0	0	0	0	0
+        19	         4	      5365	    0	      0	                                    main	/home/usuario/Descargas/lab1-master/src/matul2	4672	1069	0	3	0	0	0	0	0	0	0	0
+        20	         4	      5415	    0	      0	                                    main	/home/usuario/Descargas/lab1-master/src/matul2	4672	1069	0	3	0	0	0	0	0	0	0	0
+        21	         4	      5330	    0	      0	                                    main	/home/usuario/Descargas/lab1-master/src/matul2	4672	1069	0	3	0	0	0	0	0	0	0	0
+        22	         2	    171555	    0	      1	                  __libc_start_main_impl	/lib/x86_64-linux-gnu/libc.so.6	171456	328	0	7	0	0	0	0	0	0	0	0
+        23	         2	    171583	    0	      1	                  __libc_start_main_impl	/lib/x86_64-linux-gnu/libc.so.6	171456	328	0	7	0	0	0	0	0	0	0	0
+        24	        -1	         0	    0	      0	                [Unknown stack frame(s)]	n/a	0	0	0	10	0	0	0	0	0	0	0	0

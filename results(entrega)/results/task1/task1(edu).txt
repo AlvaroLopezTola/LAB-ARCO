@@ -1,0 +1,13 @@
+INTEL PC
+02 October 2024 06:45:46 PM
+
+MATMUL:
+  C = A * B.
+  Order N                 = 300
+  Elapsed seconds = 0.0968718
+  C(100,100)  = 1
+
+Matmul:
+  Normal end of execution.
+
+02 October 2024 06:45:46 PM
