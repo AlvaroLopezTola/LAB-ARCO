@@ -126,3 +126,14 @@ reducirse aún más.
     *max = local_max;
     }
 
+Como resultado mostramos una tabla dónde indicamos las directivas utilizadas, el nº de hilos, y el tiempo de ejecución que ha tenido cada versión del programa.
+Para ellos llamaremos a las versiones 'vector1' 'vector2' y 'vector3' según el orden en el que aparecen en el informe.
+|  Nombre Versión   |     Directiva             |  Nº de hilos  | Tiempo (s) |
+|  ---------------  | ------------------------  | ------------- | ---------- |
+|      Vector1      |  Secuencial               |      1        | 0.000006 s |
+|      Vector2      | Parallel Atomic Critical  |      2        | 0.000005 s |
+|      Vector3      | Parallel Atomic Critical  |      4        | 0.000004-0.000005 s |
+
+Conclusion: La implementación de la paralelización con OpenMP demostró ser efectiva al reducir el tiempo de ejecución del programa. 
+Al comparar los tiempos con diferentes configuraciones de hilos, observamos que el rendimiento mejoró al aumentar el número de hilos, aunque con una reducción menos pronunciada al pasar de 2 a 4 hilos. 
+Esto sugiere que hay un punto de saturación en la que la sobrecarga de gestionar más hilos puede contrarrestar las ganancias de paralelización.
