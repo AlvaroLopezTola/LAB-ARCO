@@ -6,8 +6,8 @@ y mínimo de un vector de enteros. Para ello desarrollamos una función llamada 
 
 La función se vería tal que:
 
-#include <stdio.h>
-#include <time.h>
+    #include <stdio.h>
+    #include <time.h>
 
     void find_vector(int *arr, int size, int *min, int *max) {
         *min = arr[0];
@@ -33,7 +33,7 @@ Finalmente calcularemos el tiempo transcurrido como la diferencia de (end - star
     int min, max;
 
     clock_t start = clock();
-    find_min_max(arr, 6, &min, &max);
+    find_vector(arr, 6, &min, &max);
     clock_t end = clock();
 
     double time = (double)(end - start) / CLOCKS_PER_SEC
@@ -42,5 +42,87 @@ Finalmente calcularemos el tiempo transcurrido como la diferencia de (end - star
     printf("Tiempo de ejecución: %f segundos\n", time);
 
     return 0;
+    }
+
+A continuación abordamos la paralelización del programa, para la cual modificaremos también el número de hilos.
+Así quedaría nuestro programa paralelizado con las directivas 'parallel' 'critical' y 'atomic' y el numero de hilos a 2:
+
+    #include <stdio.h>
+    #include <omp.h>
+    #include <time.h>
+
+    void find_vector(int *arr, int size, int *min, int *max) {
+    int local_min = arr[0];
+    int local_max = arr[0];
+
+    #pragma omp parallel num_threads(2)
+    {
+        int thread_min = arr[0];
+        int thread_max = arr[0];
+        
+        #pragma omp for
+        for (int i = 0; i < size; i++) {
+            if (arr[i] < thread_min) thread_min = arr[i];
+            if (arr[i] > thread_max) thread_max = arr[i];
+        }
+        
+        #pragma omp critical
+        {
+            if (thread_min < local_min) local_min = thread_min;
+            if (thread_max > local_max) local_max = thread_max;
+        }
+
+        #pragma omp atomic
+        if (thread_min < *min) *min = thread_min;
+
+        #pragma omp atomic
+        if (thread_max > *max) *max = thread_max;
+    }
+
+    *min = local_min;
+    *max = local_max;
+    }
+
+La función main será igual a la anterior, la cual nos retorna los valores min y max, y el tiempo de ejecución del programa.
+En este punto del informe, antes de compilar y ejecutar el programa paralelizado, pensamos que el tiempo de ejecución será menor
+para la nueva función paralelizada; compilando y ejecutando notamos que estamos en lo cierto, el tiempo se ha reducido gracias a la paralelización.
+
+Por último modificaremos el número de hilos para la nueva versión a 4, para ver que influencia tiene sobre el tiempo de ejecución y si este puede
+reducirse aún más.
+
+    #include <stdio.h>
+    #include <omp.h>
+    #include <time.h>
+
+    void find_vector(int *arr, int size, int *min, int *max) {
+    int local_min = arr[0];
+    int local_max = arr[0];
+
+    #pragma omp parallel num_threads(4)
+    {
+        int thread_min = arr[0];
+        int thread_max = arr[0];
+        
+        #pragma omp for
+        for (int i = 0; i < size; i++) {
+            if (arr[i] < thread_min) thread_min = arr[i];
+            if (arr[i] > thread_max) thread_max = arr[i];
+        }
+        
+        #pragma omp critical
+        {
+            if (thread_min < local_min) local_min = thread_min;
+            if (thread_max > local_max) local_max = thread_max;
+        }
+
+        #pragma omp atomic
+        if (thread_min < *min) *min = thread_min;
+
+        #pragma omp atomic
+        if (thread_max > *max) *max = thread_max;
+    }
+
+    *min = local_min;
+    *max = local_max;
     }
 
