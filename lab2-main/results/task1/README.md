@@ -1,8 +1,9 @@
-A continuación desarrollamos un programa con las especificaciones del enunciado, dónde tenemos que encontrar los valores máximo
-y mínimo de un vector de enteros. Para ello desarrollamos una función llamada 'find-vector' en la cual debemos pasarle como parametros: 
-1- El puntero que apunta hacía el vector 
-2- El tamaño del vector 
-3- Dos punteros más para los valores máximo y mínimo del vector
+# Solución Ejercicio 1
+Comenzamos desarrollando un programa con las especificaciones del enunciado, dónde tenemos que encontrar los valores máximo
+y mínimo de un vector de enteros. Para ello desarrollamos una función llamada 'find-vector' en la cual introducimos como parametros: 
+- El puntero que apunta hacía el vector 
+- El tamaño del vector 
+- Dos punteros más para los valores máximo y mínimo del vector
 
 La función se vería tal que:
 
@@ -44,7 +45,8 @@ Finalmente calcularemos el tiempo transcurrido como la diferencia de (end - star
     return 0;
     }
 
-A continuación abordamos la paralelización del programa, para la cual modificaremos también el número de hilos.
+# Paralelización del programa
+Abordamos la paralelización del programa con las directivas de OpenMP, en la cual modificaremos también el número de hilos.
 Así quedaría nuestro programa paralelizado con las directivas 'parallel' 'critical' y 'atomic' y el numero de hilos a 2:
 Para ello hemos hecho dos versiones, en la que anotamos los tiempos de ejecución para cada directiva.
 Con la directiva 'critical'
