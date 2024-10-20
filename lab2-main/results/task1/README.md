@@ -46,6 +46,8 @@ Finalmente calcularemos el tiempo transcurrido como la diferencia de (end - star
 
 A continuación abordamos la paralelización del programa, para la cual modificaremos también el número de hilos.
 Así quedaría nuestro programa paralelizado con las directivas 'parallel' 'critical' y 'atomic' y el numero de hilos a 2:
+Para ello hemos hecho dos versiones, en la que anotamos los tiempos de ejecución para cada directiva.
+Con la directiva 'critical'
 
     #include <stdio.h>
     #include <omp.h>
@@ -72,20 +74,47 @@ Así quedaría nuestro programa paralelizado con las directivas 'parallel' 'crit
             if (thread_max > local_max) local_max = thread_max;
         }
 
-        #pragma omp atomic
-        if (thread_min < *min) *min = thread_min;
-
-        #pragma omp atomic
-        if (thread_max > *max) *max = thread_max;
     }
 
     *min = local_min;
     *max = local_max;
     }
 
-La función main será igual a la anterior, la cual nos retorna los valores min y max, y el tiempo de ejecución del programa.
+A continuación mostramos la versión con la directiva 'atomic'
+
+    #include <stdio.h>
+    #include <omp.h>
+    #include <time.h>
+
+    void find_vector(int *arr, int size, int *min, int *max) {
+    #pragma omp parallel num_threads(2) // Cambia a 4 para la otra versión
+    {
+        int thread_min = arr[0];
+        int thread_max = arr[0];
+
+        #pragma omp for
+        for (int i = 0; i < size; i++) {
+            if (arr[i] < thread_min) thread_min = arr[i];
+            if (arr[i] > thread_max) thread_max = arr[i];
+        }
+
+        #pragma omp atomic
+        if (thread_min < *min) *min = thread_min;
+
+        #pragma omp atomic
+        if (thread_max > *max) *max = thread_max;
+    }
+    }
+
+La función main será igual a la anterior, la cual nos retorna los valores min y max, y el tiempo de ejecución del programa, con la directiva utilizada.
 En este punto del informe, antes de compilar y ejecutar el programa paralelizado, pensamos que el tiempo de ejecución será menor
-para la nueva función paralelizada; compilando y ejecutando notamos que estamos en lo cierto, el tiempo se ha reducido gracias a la paralelización.
+para la nueva función paralelizada; compilando y ejecutando notamos que estamos en lo cierto, el tiempo se ha reducido gracias a la paralelización:
+
+    eduardo@eduardo-GF65-Thin-9SEXR:~/Downloads/lab2-main/results/task1$ ./critical
+    Critical - Min: 1, Max: 10, Tiempo: 0.000005 segundos
+
+    eduardo@eduardo-GF65-Thin-9SEXR:~/Downloads/lab2-main/results/task1$ ./atomic
+    Atomic - Min: 1, Max: 10, Tiempo: 0.000004 segundos
 
 Por último modificaremos el número de hilos para la nueva versión a 4, para ver que influencia tiene sobre el tiempo de ejecución y si este puede
 reducirse aún más.
@@ -115,15 +144,36 @@ reducirse aún más.
             if (thread_max > local_max) local_max = thread_max;
         }
 
+    }
+
+    *min = local_min;
+    *max = local_max;
+    }
+
+    ------------------------------------------------------------------------
+    
+    #include <stdio.h>
+    #include <omp.h>
+    #include <time.h>
+
+    void find_vector(int *arr, int size, int *min, int *max) {
+    #pragma omp parallel num_threads(4) // Cambia a 4 para la otra versión
+    {
+        int thread_min = arr[0];
+        int thread_max = arr[0];
+
+        #pragma omp for
+        for (int i = 0; i < size; i++) {
+            if (arr[i] < thread_min) thread_min = arr[i];
+            if (arr[i] > thread_max) thread_max = arr[i];
+        }
+
         #pragma omp atomic
         if (thread_min < *min) *min = thread_min;
 
         #pragma omp atomic
         if (thread_max > *max) *max = thread_max;
     }
-
-    *min = local_min;
-    *max = local_max;
     }
 
 Como resultado mostramos una tabla dónde indicamos las directivas utilizadas, el nº de hilos, y el tiempo de ejecución que ha tenido cada versión del programa.
@@ -131,8 +181,10 @@ Para ellos llamaremos a las versiones 'vector1' 'vector2' y 'vector3' según el 
 |  Nombre Versión   |     Directiva             |  Nº de hilos  | Tiempo (s) |
 |  ---------------  | ------------------------  | ------------- | ---------- |
 |      Vector1      |  Secuencial               |      1        | 0.000006 s |
-|      Vector2      | Parallel Atomic Critical  |      2        | 0.000005 s |
-|      Vector3      | Parallel Atomic Critical  |      4        | 0.000004-0.000005 s |
+|      Vector2      | Parallel Atomic           |      2        | 0.000004 s |
+|      Vector2.1    | Parallel Critical         |      2        | 0.000004-0.000005 s |
+|      Vector3      | Parallel Atomic           |      4        | 0.000005 s |
+|      Vector3.1    | Parallel Critical         |      4        | 0.000005 s |
 
 Conclusion: La implementación de la paralelización con OpenMP demostró ser efectiva al reducir el tiempo de ejecución del programa. 
 Al comparar los tiempos con diferentes configuraciones de hilos, observamos que el rendimiento mejoró al aumentar el número de hilos, aunque con una reducción menos pronunciada al pasar de 2 a 4 hilos. 
