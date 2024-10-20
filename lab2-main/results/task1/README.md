@@ -89,7 +89,7 @@ A continuación mostramos la versión con la directiva 'atomic'
     #include <time.h>
 
     void find_vector(int *arr, int size, int *min, int *max) {
-    #pragma omp parallel num_threads(2) // Cambia a 4 para la otra versión
+    #pragma omp parallel num_threads(2)
     {
         int thread_min = arr[0];
         int thread_max = arr[0];
@@ -156,7 +156,7 @@ reducirse aún más.
     #include <time.h>
 
     void find_vector(int *arr, int size, int *min, int *max) {
-    #pragma omp parallel num_threads(4) // Cambia a 4 para la otra versión
+    #pragma omp parallel num_threads(4)
     {
         int thread_min = arr[0];
         int thread_max = arr[0];
