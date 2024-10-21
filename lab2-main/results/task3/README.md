@@ -132,15 +132,30 @@ Esta versión utiliza la directiva `atomic` para asegurar la actualización de l
 
  | Método     | Número de Intervalos | Valor Aproximado de π | Error             | Tiempo de Ejecución (segundos) |
 |------------|----------------------|-----------------------|-------------------|--------------------------------|
-| Secuencial | 10,000               | 3.1415926544232282    | 0.0000000008334351 | 0.0000534560                   |
-| Parallel   | 10,000               | 3.1415926544232282    | 0.0000000008334351 | 0.0000156780                   |
-| Critical   | 10,000               | 3.1415926544232282    | 0.0000000008334351 | 0.0000208900                   |
-| Atomic     | 10,000               | 3.1415926544232282    | 0.0000000008334351 | 0.0000182340                   |
+| Secuencial | 10,000               | 3.1415926544232282    | 0.0000000008334351 | 0.0000640000                   |
+| Parallel   | 10,000               | 3.1415926544231274  | 0.0000000008333347| 0.0157797820                  |
+| Critical   | 10,000               | 3.1415926544231270   | 0.0000000008333338 |0.0008599570                |
+| Atomic     | 10,000               | 3.1415926544231274   | 0.0000000008333343 | 0.0008669500                 |
 
 
-## Conclusiones
+# Conclusiones 
 
-- Todos los métodos propuestos producen el mismo valor aproximado de π con un error igual, lo que indica que las implementaciones son correctas.
-- La versión paralelizada usando `parallel` mostró ser la más rápida, seguida por las versiones con `critical` y `atomic`.
-- Las implementaciones paralelizadas son significativamente más rápidas que la versión secuencial, lo que demuestra la efectividad de la paralelización en este caso.
+1. **Precisión**:
+   - Todas las versiones (`secuencial`, `parallel`, `critical`, `atomic`) producen un valor similar de π con errores mínimos , indicando que la precisión no se ve comprometida por la paralelización.
+
+2. **Análisis de Rendimiento**:
+   - La versión secuencial es más rápida para pocos intervalos (10,000) debido al bajo coste computacional en comparación con la sobrecarga de gestionar hilos.
+   - Las versiones `critical` y `atomic` presentan cierta sobrecarga por la sincronización. La versión `critical` es ligeramente más rápida en este caso, aunque `atomic` suele ser más eficiente con mayores tamaños de problema.
+   - La versión `parallel` sin sincronización tiene el mayor tiempo de ejecución, posiblemente debido a condiciones de carrera en la acumulación de resultados.
+
+3. **Escalabilidad**:
+   - A medida que aumentan los intervalos, los beneficios de la paralelización deberían ser más evidentes, especialmente para la versión `atomic`, ya que los costes de sincronización se amortizan con más trabajo computacional.
+   - Para tareas de mayor envergadura, `atomic` es preferible por su menor sobrecarga en comparación con `critical`.
+
+4. **Elección de Directivas**:
+   - La elección entre `critical` y `atomic` depende de la naturaleza del trabajo y la arquitectura. Para cargas ligeras, la paralelización puede no ser beneficiosa debido a los costes de sincronización.
+   - En problemas más complejos, `atomic` ofrece un mejor equilibrio entre rendimiento y seguridad de los hilos.
+
+En resumen, aunque las versiones paralelas introducen cierta sobrecarga para problemas pequeños, `atomic` podría ser la opción más adecuada para grandes cantidades de trabajo.
+
 
