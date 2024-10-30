@@ -8,6 +8,14 @@ más tarde).
 * Haz un análisis de trip-counts y flop. ¿Qué información nueva aparece en la vista de survey? Haz una captura y comenta
 los datos nuevos más relevantes.
 
+## Respuestas
+* Tiempo propio, tiempo que ejecuta activamente una función o bucle, sin incluir el tiempo de las funciones llamadas en el bucle o función.
+Tiempo total, tiempo que ejecuta activamente una función o bucle y sus destinatarios.
+*
+* Puede ser por varias razones que no se nos muestre el gráfico, como por ejemplo; Datos perdidos o incompletos que se requieren para construir el gráfico,
+una configuración incorrecta de nuestra herramienta Intel Advisor, problemas con el entorno de ejecución y los permisos.
+*
+
 -----------------
 
 # Task 1: Intel Advisor
