@@ -9,12 +9,13 @@ más tarde).
 los datos nuevos más relevantes.
 
 ## Respuestas
-* Tiempo propio, tiempo que ejecuta activamente una función o bucle, sin incluir el tiempo de las funciones llamadas en el bucle o función.
-Tiempo total, tiempo que ejecuta activamente una función o bucle y sus destinatarios.
-*
+* 'Self time' hace referencia al tiempo que ejecuta activamente una función o bucle, sin incluir el tiempo de las funciones invocadas en el bucle o función.
+Sin embargo 'Time total' es el tiempo que ejecuta activamente una función o bucle incluyendo el tiempo de las funciones invocadas.
 * Puede ser por varias razones que no se nos muestre el gráfico, como por ejemplo; Datos perdidos o incompletos que se requieren para construir el gráfico,
 una configuración incorrecta de nuestra herramienta Intel Advisor, problemas con el entorno de ejecución y los permisos.
-*
+* Tras hacer el nuevo ánalisis, hemos detectado nueva información en la vista survey, como son: la información relacionada con los 'Trip Counts', media, máximos, mínimos,
+duración de la iteración; información del gráfico 'Roofline', nos dice que este bucle está principalmente vinculado a la memoria, el rendimiento de los bucles está limitado por el ancho de banda de la caché compartida y la DRAM.
+Una recomendación que nos da Roofline es que ejecutemos para todos los niveles de memoria; y por último 'Tiempo de CPU Total', por iteración y por instancia. 
 
 -----------------
 
