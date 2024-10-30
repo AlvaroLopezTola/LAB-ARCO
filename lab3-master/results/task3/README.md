@@ -17,8 +17,9 @@
 
    Cuenta con un modelo de CPU Intel Core i5-9300H, una Arquitectura x86_64 (64 bits) con 4 núcleos y 8 hilos        gracias a Hyper-Threading, por último las extensiones multimedia soportadas son varias: AVX, MME, SSE, MMX
 
-En el caso de Álvaro usamos el mismo comando lscup. 
-Obtenemos estos resultados : modelo de CPU AMD Ryzen 7 6800HS, una Arquitectura x86_64 (64 bits) con 8 núcleos y 16 hilos gracias a SMT (Simultaneous Multithreading). Las extensiones multimedia soportadas son varias: AVX, AVX2, FMA, SSE, SSE2, SSE4.1, SSE4.2, MMX y 3DNow!.
+  En el caso de Álvaro usamos el mismo comando lscup. 
+  Obtenemos estos resultados : modelo de CPU AMD Ryzen 7 6800HS, una Arquitectura x86_64 (64 bits) con 8 núcleos y 16 hilos gracias a SMT (Simultaneous Multithreading). Las extensiones 
+  multimedia soportadas son varias: AVX, AVX2, FMA, SSE, SSE2, SSE4.1, SSE4.2, MMX y 3DNow!.
 -----
 
 # Task 3: Vectorization
