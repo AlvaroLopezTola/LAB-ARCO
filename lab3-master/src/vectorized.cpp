@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
-#include <immintrin.h> // Para AVX
+#include <immintrin.h>
 #include <omp.h>
 
 #define SIZE 50000
