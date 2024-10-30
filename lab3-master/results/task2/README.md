@@ -4,6 +4,10 @@
 para apoyar tu análisis. Finalmente genera un snapshot con el nombre "task2" y añádelo a esta misma carpeta.
 2. ¿Por qué está limitado el algoritmo? ¿Qué técnicas podríamos aplicar para mejorar el rendimiento?
 
+## Respuestas
+* Ordenador Intel-Edu
+![image](https://github.com/user-attachments/assets/8c150000-c1c4-47eb-bd44-66f9797ccd6f)
+
 ----
 
 # Task2: Roofline
