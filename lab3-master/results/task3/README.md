@@ -9,6 +9,14 @@
     * ¿Cual es el valor del campo Vector Length? ¿Es este el valor esperado teniendo en cuenta las extensiones que estás utilizando y que el programa utiliza floats de 32 bits? Tanto si la respuesta es afirmativa como negativa justifica cual es el valor que esperabas.
     * ¿Cuál ha sido la ganancia? Explica si es el resultado esperado, si no lo es, explica cuál crees que es la razón (Pista: Intel Advisor puede darte indicios de cuál es el problema).
 
+## Respuestas
+* Conocemos en primer lugar las caracteristicas de la máquina de Eduardo, para ello ejecutamos el comando:
+
+      eduardo@eduardo-GF65-Thin-9SEXR:~$ lscpu
+   
+
+   Cuenta con un modelo de CPU Intel Core i5-9300H, una Arquitectura x86_64 (64 bits) con 4 núcleos y 8 hilos        gracias a Hyper-Threading, por último las extensiones multimedia soportadas son varias: AVX, MME, SSE, MMX
+
 -----
 
 # Task 3: Vectorization
