@@ -50,18 +50,26 @@
    utilizada.
 
   ## Analísis de ganancia
-    Versión Original
+   * Versión Original
   
-     Tiempo total de CPU: 10.47 segundos
-     Instrucciones de vectorización: SSE2 (no hay vectorización efectiva en el código)
-     Rendimiento en GFLOPS: 1.91 GFLOPS
-    Versión Vectorizada (Optimizada)
+      Tiempo total de CPU: 10.47 segundos
+  
+      Instrucciones de vectorización: SSE2 (no hay vectorización efectiva en el código)
+  
+      Rendimiento en GFLOPS: 1.91 GFLOPS
+  
+   * Versión Vectorizada (Optimizada)
+  
      Tiempo total de CPU: 0.789 segundos
+     
      Instrucciones de vectorización: AVX2 (utiliza instrucciones vectoriales)
+     
      Rendimiento en GFLOPS: 250 GFLOPS
+     
    *Ganancia de Rendimiento
-      Reducción de tiempo: De 10.47 segundos a 0.789 segundos, lo que implica una disminución del tiempo en un 93%.
-      Incremento en GFLOPS: De 1.91 a 250, un aumento significativo que confirma el uso eficiente de las instrucciones AVX2.
+  
+    Reducción de tiempo: De 10.47 segundos a 0.789 segundos, lo que implica una disminución del tiempo en un 93%.
+    Incremento en GFLOPS: De 1.91 a 250, un aumento significativo que confirma el uso eficiente de las instrucciones AVX2.
 
     La ganancia obtenida es notablemente alta, y esto se alinea con lo esperado al aprovechar al máximo las instrucciones AVX2 en la vectorización del programa. Intel Advisor confirma que el 
     cambio en el conjunto de instrucciones de SSE2 a AVX2, que permite un mayor número de operaciones simultáneas, es el principal factor de mejora en el rendimiento.
