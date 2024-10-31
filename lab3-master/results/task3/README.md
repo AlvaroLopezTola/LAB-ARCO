@@ -25,19 +25,19 @@
     máximo las capacidades de vectorización de la arquitectura SIMD disponible en la CPU. Para abordar este problema, hemos vectorizado el bucle de multiplicación de números complejos 
     utilizando las extensiones AVX2.
   ## Cambios realizados para la vectorización
-    1.Uso de intrínsecos AVX2: 
+    1. Uso de intrínsecos AVX2: 
      Reemplazamos las operaciones de multiplicación y suma de números complejos en el bucle anidado por instrucciones intrínsecas de AVX2, como _mm256_fmsub_ps y _mm256_fmadd_ps. Estas 
      funciones permiten realizar operaciones en paralelo sobre múltiples elementos de un vector en una sola instrucción, aprovechando así la capacidad de procesamiento vectorial de la CPU.
 
-    2.Carga y almacenamiento en registros:
+    2. Carga y almacenamiento en registros:
      Implementamos la carga de los datos de los array a y b directamente en registros de 256 bits, utilizando _mm256_loadu_ps, para manipular varios elementos de manera simultánea. Luego, 
      guardamos los resultados en el array c usando _mm256_storeu_ps.
 
-    3.Paralelización con OpenMP:
+    3. Paralelización con OpenMP:
      Utilizamos directivas de OpenMP para paralelizar el bucle exterior, permitiendo que múltiples hilos procesaran diferentes filas del resultado simultáneamente. Esto no solo mejora el 
      rendimiento a través de la vectorización, sino que también aprovecha la capacidad de múltiples núcleos de la CPU.
 
-    4.Configuración de compilación:
+    4. Configuración de compilación:
      Compilamos el programa con las opciones -mavx2 y -march=native para habilitar las instrucciones AVX2 y optimizar el código para nuestra arquitectura.
 
      Estos cambios permiten que el bucle de multiplicación de números complejos se vectorice, utilizando las capacidades SIMD de la CPU y mejorando significativamente el rendimiento del 
@@ -66,7 +66,7 @@
      
      Rendimiento en GFLOPS: 250 GFLOPS
      
-   *Ganancia de Rendimiento
+   * Ganancia de Rendimiento
   
     Reducción de tiempo: De 10.47 segundos a 0.789 segundos, lo que implica una disminución del tiempo en un 93%.
     Incremento en GFLOPS: De 1.91 a 250, un aumento significativo que confirma el uso eficiente de las instrucciones AVX2.
