@@ -30,6 +30,16 @@ consumen realizando cálculos internos.
 
 Para cada pregunta analiza y aporta las capturas de pantalla que veas conveniente para apoyar la explicación.
 
+## Respuestas
+* Antes de realizar los ánalisis convenientes conoceremos las caracteristicas de la arquitectura del PC de Edu:
+
+        eduardo@eduardo-GF65-Thin-9SEXR:~/Downloads/Template-Lab4/trabajo/src$ lscpu       
+  
+     * El modelo del procesador es un Intel Core i5-9300H @ 2.40GHz, con una arquitectura x86_64, con un total de        8 hilos, 4 núcleos.
+     * Teniendo 4 núcleos y 8 hilos, podremos ejecutar 2 hilos por núcleo.
+
+
+      
 ----
 
 # Task 1: Machine Analysis and Code Performance
