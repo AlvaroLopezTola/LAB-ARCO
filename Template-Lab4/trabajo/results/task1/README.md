@@ -38,6 +38,12 @@ Para cada pregunta analiza y aporta las capturas de pantalla que veas convenient
      * El modelo del procesador es un Intel Core i5-9300H @ 2.40GHz, con una arquitectura x86_64, con un total de        8 hilos, 4 núcleos.
      * Teniendo 4 núcleos y 8 hilos, podremos ejecutar 2 hilos por núcleo.
 
+ * Las caracteristicas de la arquitectura del PC de Álvaro son:
+
+      * El modelo del procesador es un AMD Ryzen 7 6800HS @ 4,7GHz, con una arquitectura x86_64 , con 16 hilos en total y 8 nucleos.
+      * Teniendo 2 2 hilos por nucleo para ejecutar.
+   
+
 
       
 ----
