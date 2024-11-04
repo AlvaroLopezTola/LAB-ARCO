@@ -35,13 +35,24 @@ Para cada pregunta analiza y aporta las capturas de pantalla que veas convenient
 
         eduardo@eduardo-GF65-Thin-9SEXR:~/Downloads/Template-Lab4/trabajo/src$ lscpu       
   
-     * El modelo del procesador es un Intel Core i5-9300H @ 2.40GHz, con una arquitectura x86_64, con un total de        8 hilos, 4 núcleos.
+     * El modelo del procesador es un Intel Core i5-9300H @ 2.40GHz, con una arquitectura x86_64, con un total de 8 hilos, 4 núcleos.
      * Teniendo 4 núcleos y 8 hilos, podremos ejecutar 2 hilos por núcleo.
 
  * Las caracteristicas de la arquitectura del PC de Álvaro son:
 
       * El modelo del procesador es un AMD Ryzen 7 6800HS @ 4,7GHz, con una arquitectura x86_64 , con 16 hilos en total y 8 nucleos.
-      * Teniendo 2 2 hilos por nucleo para ejecutar.
+      * Teniendo 2 hilos por nucleo para ejecutar.
+
+
+* Desde la pestaña de Top Down analizamos las funciones que más consumen y son:
+
+   * AD_Stage3_4 con un tiempo de 3,532 segundos.
+   * loop in LBL_FAD_Stage3_4 at LBL_FAD_Transform_Operations.cpp:146 con un tiempo de 2,822 segundos.
+
+* La etapa más costosa es la 3
+
+* Y las operaciones más complejas y que requieren mayor tiempo son las de substractinginformation, por los 2 bucles anidados que contiene.
+ 
    
 
 
