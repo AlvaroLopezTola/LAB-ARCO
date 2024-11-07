@@ -44,6 +44,7 @@ Para cada pregunta analiza y aporta las capturas de pantalla que veas convenient
       * Teniendo 2 hilos por nucleo para ejecutar.
 
 
+
 * Desde la pestaña de Top Down analizamos las funciones que más consumen y son:
 
    * AD_Stage3_4 con un tiempo de 3,532 segundos.
@@ -53,11 +54,20 @@ Para cada pregunta analiza y aporta las capturas de pantalla que veas convenient
 
 * Y las operaciones más complejas y que requieren mayor tiempo son las de substractinginformation, por los 2 bucles anidados que contiene.
  
-   
+* A continuación mostramos una captura del gráfico Roffline:
+   ![image](https://github.com/user-attachments/assets/95396c3a-a125-4f8d-9e08-d475f38fd96f)
 
+* Metiendonos en la pestaña de Summary podemos encontrar en la sección Top-Time-Consuming Loops los bucles más complejos o con el mayor tiempo de ejecución:
+   * substractingInformation
+   * projectingImg
+   * brightnessAD
+
+Identificando estos bucles en el gráfico Roofline, nos damos cuenta que los 3 se encuentran limitados por memoria y cómputo, mas especifico por el ancho de banda de la memoria RAM:
+
+Mejoraría los accesos a memoria , reordenando las estructuras de datos, modificando el orden de los bucles para conseguir un acceso a memoria mas contiguo, o forzar la vectorización en los bucles. 
 
       
-----
+---- 
 
 # Task 1: Machine Analysis and Code Performance
 
