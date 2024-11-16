@@ -22,6 +22,31 @@ Una vez ejecutado el análisis de tipo "Suitability" accede a la pestaña Suitab
 * ¿Cómo afecta la duración y número de iteraciones al rendimiento esperado? Utiliza capturas de pantalla para apoyar el análisis
 * ¿A qué corresponde el número de iteraciones en cada "site" en el código? ¿Qué explicación tienen dentro del algoritmo?
 
+
+# Respuestas
+
+Antes de pasar a analizar los resultados de Intel Advisor es necesario instumentalizar el código para que la herramienta sea capaz de entender que partes queremos paralelizar, mejorar.
+* Hemos anotado los bucles del anterior ejercicio porque eran los que más tiempo consumían, estos se encuentran anotados mediante comentarios y directivas de Intel Advisor: subtractingInformation, projectingImg, brightnessAD.
+* La estructura de una anotación generalmente sigue un formato basado en identificación de bucles, que podrían ser paralelizados, aparte de proporcionar información de como podrían ejecutarse en paralelo y mas recomendaciones.
+Se descomponen en 4 partes:
+  - Directiva de paralelización: esto es una sugerencia o instrucción prara indicar que bucle o sección de código es candidato para la paralelización.
+  - Dependencias de datos: en algunos casos se especifican dependencias entre iteraciones del bucle que podrían limitar la paralelización.
+  - Tamaño del dominio: en ocasiones el programador proporciona detalles sobre el tamaño de los datos, como por ejemplo los vectores o matrices.
+  - Sugerencias de paralelización: el programador debe indicar que tipo de paralelización cree que es más adecuada utilizar.
+
+Como ya sabemos, en términos de OpenMP:
+#pragma omp parallel for (para paralelizar bucles)
+#pragma omp for (para dividir el trabajo entre hilos)
+#pragma omp critical (para secciones críticas)
+#pragma omp reduction (para reducir variables compartidas entre hilos)
+
+* Podemos observar las columnas, e identificar que dato nos proporciona cada una de ellas:
+  - Loop: identificador del bucle
+  - Total Serial Time: tiempo en ejecutar una región del código sin paralelización
+  - Site Gain: es la ganancia estimada al paralelizar la región del código en función del ánalisis. Es decir, cuánto mejoraría esta parte con paralelización
+  - Impact to Program Gain: es la ganancia de rendimiento estimada para el programa completo si la paralelización se implementara
+* Podemos observar la diferencia de ambas en las anteriores descripciones, 'Site Gain' es para una región del código mientras que 'Impact to Program Gain' es para el código completo.
+
 ---
 
 # Task 2: Annotation and threading analysis
