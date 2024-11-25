@@ -8,6 +8,11 @@ Para el ordenador de Eduardo obtenemos de resultado al ejecutar query:
     eduardo@eduardo-GF65-Thin-9SEXR:~/Downloads/lab6-main/src/task1$ ./query
     Device: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
 
+Para el ordenador de Álvaro obtenemos:
+
+    alvaro@alvaro-ROG-Strix-G513RC-G513RC:~/Practica6/lab6-main/src/task1$ ./query
+    Device: AMD Ryzen 7 6800HS with Radeon Graphics  
+
 
 ## ¿Qué tipos de selectores tenemos en DPC? ¿Podemos obtener una GPU? ¿Qué pasa si no existe el dispositivo requerido?
 **Contesta aquí.**
