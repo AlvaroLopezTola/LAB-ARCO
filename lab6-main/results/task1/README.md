@@ -15,15 +15,21 @@ Para el ordenador de Álvaro obtenemos:
 
 
 ## ¿Qué tipos de selectores tenemos en DPC? ¿Podemos obtener una GPU? ¿Qué pasa si no existe el dispositivo requerido?
-**Contesta aquí.**
+En DPC los selectores de dispositovos que tenemos nos permiten:
+Ver cualquier dispositivo disponible: Dejando que el sistema decida.
+Solo el dispositivo anfitrión (host): Ejecuta en el CPU principal.
+Tipo específico de dispositivo: Por ejemplo, GPU, TPU.
+Múltiples tipos de dispositivos: Ejemplo: GPU + FPGA.
+Dispositivo específico: Como una GPU Intel o Nvidia
 
 Es probable que alguno de los dispositivos que te permite seleccionar DPC no los tengas disponibles en tu PC. En ese caso habría que recurrir a buscarlos en otros equipos o emplear soluciones de hardware a través de la nube.
+Nuestro ordenador al no tener GPU no la lista, nos retorna error 'PI_ERROR_DEVICE_NOT_FOUND'
 
 ## Prueba a obtener una GPU, si es posible en tu equipo, modificando el programa query.cpp en gpu_query.cpp
-**guarda el fichero en results/task1/src.**
+Modificando el programa para que nos liste nuestra GPU, nos retorna que no encuentra el dispositivo. 
 
 ## ¿Cómo has obtenido la GPU?
-**Contesta aquí.**
+
 
 ## Modifica el programa para obtener más datos del dispositivo.
 **guarda el fichero en results/task1/src/more_query.cpp**
