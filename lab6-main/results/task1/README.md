@@ -3,7 +3,11 @@ Familiarizarse con el uso de DPC.
 En primer lugar copia el código de [src/task1/query.cpp](../../src/task1/query.cpp) en results/task1/src y compilalo con dpcpp.
 
 ## ¿Qué salida obtienes?
-**Contesta aquí.**
+Para el ordenador de Eduardo obtenemos de resultado al ejecutar query:
+
+    eduardo@eduardo-GF65-Thin-9SEXR:~/Downloads/lab6-main/src/task1$ ./query
+    Device: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
+
 
 ## ¿Qué tipos de selectores tenemos en DPC? ¿Podemos obtener una GPU? ¿Qué pasa si no existe el dispositivo requerido?
 **Contesta aquí.**
