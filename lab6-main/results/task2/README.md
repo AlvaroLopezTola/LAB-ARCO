@@ -6,7 +6,8 @@ El código en [src/task2/buffer.cpp](../../src/task2/buffer.cpp) debería repres
 4. Calcular B como resultado del valor de B multiplicado por A
 
 ## Comprueba el resultado y muéstralo a continuación
-**Contesta aquí.**
+![image](https://github.com/user-attachments/assets/75ab3af9-1f00-48e6-bb70-f9959c8f8b9e)
+
 
 ## ¿Qué abstracción se está usando para los contenedores de datos?
 
